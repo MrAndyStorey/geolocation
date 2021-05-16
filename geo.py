@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
 import re
 import math
-
-import os
-from dotenv import load_dotenv
-
-# Load the environment variables from .env.
-load_dotenv()
-apiKey = os.getenv("API")
+import json
+import requests
 
 
 def validatePostCode(postcode):
@@ -24,7 +19,17 @@ def validatePostCode(postcode):
     return False
 
 def returnCoordsFromPC(postcode):
-  return True
+  coordLat=""
+  coordLong = ""
+
+  # To find out the cooridnates from the passed postcode, 
+  # we will use the following endpoint from https://postcodes.io/ which is free to use.
+  # GET ==>> api.postcodes.io/postcodes/BH189NX
+  # It returns JSON with a "status": and "result" fields with longitude & latitude being what we are after.
+
+
+  
+  return coordLat, coordLong
 
 def returnDistance(lat1, lon1, lat2, lon2):
   #Radiuus of the Earth
