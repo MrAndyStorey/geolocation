@@ -28,6 +28,14 @@ class TestPostCode(unittest.TestCase):
         data = "BH14 9HP"
         self.assertTrue(validatePostCode(data))
 
+    def test_PC_lowercase_A9_9AA(self):
+        data = "m1 1ae"
+        self.assertTrue(validatePostCode(data))
+
+    def test_PC_nospace_lowercase_A9_9AA(self):
+        data = "m11ae"
+        self.assertTrue(validatePostCode(data))
+
     def test_PC_ZeroLength(self):
         data = ""
         self.assertFalse(validatePostCode(data))
